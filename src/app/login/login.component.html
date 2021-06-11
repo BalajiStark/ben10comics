@@ -1,0 +1,78 @@
+<form [formGroup]="form">
+<main class="form-signin" >
+      <div *ngIf = "isSignIn() === true; else login">
+      <h1 class="h3 mb-3 fw-normal">Please Sign in</h1>
+      
+      <div class="alert alert-danger" *ngIf = "form.errors?.invalidSignIn">
+        Email already existis..try login
+      </div>
+
+      <div class="form-floating">
+        <input required type="text" formControlName = "username" class="form-control" 
+        id="floatingName" placeholder="Username">
+        <label for="floatingName">User Name</label>
+      </div>
+      <div class="alert alert-danger" *ngIf = "username?.touched && username?.invalid">
+        <div *ngIf="username?.errors?.required">Username is required</div>
+        <div *ngIf="username?.errors?.minlength">Username should minimum of 3 characters</div>
+      </div>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" formControlName = "email" 
+        placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="alert alert-danger" *ngIf = "email?.touched && email?.invalid">
+        <div *ngIf="email?.errors?.required">Email address is required</div>
+        <div *ngIf="email?.errors?.pattern">Email address is invalid</div>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" 
+        formControlName = "password" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="alert alert-danger" *ngIf = "password?.touched && password?.invalid">
+        <div *ngIf="password?.errors?.required">password is required</div>
+        <div *ngIf="password?.errors?.minlength">password should minimum of 6 characters</div>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" (click)="signInWithEmail()" >
+        Sign in</button>
+
+      </div>
+
+      <ng-template #login>
+        <h1 class="h3 mb-3 fw-normal">Please Log in</h1>
+        <div class="alert alert-danger" *ngIf = "form.errors?.invalidLogin">
+          Invalid username or password
+        </div>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingloginInput" formControlName = "logInEmail" 
+        placeholder="name@example.com">
+        <label for="floatingloginInput">Email address</label>
+      </div>
+
+      <div class="alert alert-danger" *ngIf = "loginEmail?.touched && loginEmail?.invalid">
+        <div *ngIf="loginEmail?.errors?.required">Email address is required</div>
+        <div *ngIf="loginEmail?.errors?.pattern">Email address is invalid</div>
+      </div>
+
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingloginPassword" 
+        formControlName = "logInPassword" placeholder="Password">
+        <label for="floatingloginPassword">Password</label>
+      </div>
+
+      <div class="alert alert-danger" *ngIf = "loginPassword?.touched && loginPassword?.invalid">
+        <div *ngIf="loginPassword?.errors?.required">password is required</div>
+        <div *ngIf="loginPassword?.errors?.minlength">password should minimum of 6 characters</div>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" (click)="logInWithEmail()">Log in</button>
+      </ng-template>
+
+      <div>
+        <a class="switch" (click)="switchLoginSignin()">{{ signIntext }}</a>
+      </div>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>   
+
+      <button class="w-100 btn btn-lg btn-danger signingoogle" (click)="siginWithGoogle()">Sign in with google</button>
+    </main>
+</form>

@@ -1,0 +1,18 @@
+.navbar {
+    height: 70px;
+}
+
+#navbarSupportedContent {
+    height: 70px;
+    padding-top: -50px;
+}
+
+.container-fluid {
+    padding-left: var(--bs-gutter-x, -0.25rem);
+    padding-right: var(--bs-gutter-x, -0.25rem);
+}
+
+.d-flex {
+    margin-top: -20px;
+    margin-left: -20px;
+}

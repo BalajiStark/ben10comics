@@ -1,0 +1,11 @@
+<h2>{{ title.prop }}</h2>
+
+<div class="row">
+    <ng-container *ngFor="let doc of docsList; let i = index">
+      <div class="row">
+        <div class="card" style="width: 100%;">
+          <img class="card-img-top" [src]="doc.imgSrc" [alt]="doc.id">
+        </div>
+      </div>
+    </ng-container>
+  </div>

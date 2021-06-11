@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="col">
+        <div class="card" style="width: 25rem;">
+          <img class="card-img-top" src= "{{ src }}">
+          <div class="card-body">
+              <table>
+                <ng-container *ngFor="let doc of docsList" >
+                    <tr *ngIf="doc.id === 'Name'"><th>{{ doc.id }}</th><td>{{ doc.prop }}</td></tr>
+                </ng-container>
+                <ng-container *ngFor="let doc of docsList">
+                    <tr *ngIf="doc.id !== 'Name'"><th>{{ doc.id }}</th><td>{{ doc.prop }}</td></tr>
+                </ng-container>
+               </table>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-danger btn-block" (click)="previousClick()">
+            previous
+            </a>
+            <a class="btn btn-primary btn-block" (click)="nextClick()">
+            Next
+            </a>
+          </div>
+        </div>
+    </div>
+</div>

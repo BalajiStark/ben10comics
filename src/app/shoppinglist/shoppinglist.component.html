@@ -1,0 +1,29 @@
+<!-- <div class="cart-icon fixed-top">
+    <i class="fa fa-shopping-cart"></i>
+    <span class="badge badge-pill badge-warning" id='lblCartCount'>{{Quantity}}</span>
+</div> -->
+<h2>Books Collection</h2>
+<div class="row">
+    <ng-container *ngFor="let doc of dupedDocsList; let i = index">
+      <div class="col">
+        <div class="card" style="width: 25rem;">
+          <img class="card-img-top" [src]="doc.prop.imgSrc" [alt]="doc.prop.title">
+          <div class="card-body">
+            <h4 class="card-title">{{ doc.prop.title }}</h4>
+            <p class="card-text">{{ doc.prop.genre }}</p>
+          </div>
+          <div class="card-footer">
+            <a *ngIf = "getQuantity(doc) === 0; else removeCart" 
+            class="btn btn-primary btn-block"
+            (click)="increaseQuantity(doc)">
+            Read now</a>
+            <ng-template #removeCart>
+              <a class="btn btn-secondary btn-block" (click)="decreaseQuantity(doc)">Remove from Cart</a>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="(i % 2 !== 0)" class="w-100"></div>
+    </ng-container>
+  </div>
+  

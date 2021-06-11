@@ -46,7 +46,6 @@ export class AuthService {
   }
 
   async logInWithEmail(email: string, password: string) {
-    debugger;
     this.auth.auth
     .signInWithEmailAndPassword(email, password)
     .then(() => {

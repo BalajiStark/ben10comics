@@ -28,7 +28,6 @@ export class CharactersComponent implements OnInit {
     this.index--;
     this.index = this.index < 1 ? 23 : this.index;
     this.getCharacterInfo();
-    debugger;
   }
 
   getCharacterInfo() {

@@ -10,7 +10,6 @@ export class LoginguardService implements CanActivate{
   constructor(private auth: AuthService, private router : Router) { }
 
   canActivate() {
-    debugger;
     return true;  
   }
 }
